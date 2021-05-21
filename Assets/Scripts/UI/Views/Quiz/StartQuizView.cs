@@ -35,6 +35,7 @@ namespace HoodedCrow.UI
 
         private void OnYesButton()
         {
+            Debug.Log("Yes");
             _viewController.ShowView<QuizQuestionView>(false);
         }
 

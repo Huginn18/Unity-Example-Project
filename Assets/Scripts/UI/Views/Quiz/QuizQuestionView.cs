@@ -6,12 +6,10 @@ namespace HoodedCrow.UI
     {
         protected override void OnShowView()
         {
-            throw new System.NotImplementedException();
         }
 
         protected override void OnHideView()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
