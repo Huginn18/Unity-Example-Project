@@ -7,7 +7,7 @@ namespace HoodedCrow.Core.UI
         [SerializeField] protected GameObject _contentContainer;
         protected IViewController<AView> _viewController;
 
-        public void Initialize(IViewController<AView> viewController)
+        public virtual void Initialize(IViewController<AView> viewController)
         {
             _viewController = viewController;
             _contentContainer.SetActive(false);

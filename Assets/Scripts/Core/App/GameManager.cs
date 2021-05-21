@@ -9,7 +9,7 @@ namespace HoodedCrow.Core
         [SerializeField] private List<AModuleManager> _preloadModule = new List<AModuleManager>();
         private Dictionary<Type, AModuleManager> _activeModules = new Dictionary<Type, AModuleManager>();
 
-        private void Awake()
+        private void Start()
         {
             App.Instance.SetGameManager(this);
         }

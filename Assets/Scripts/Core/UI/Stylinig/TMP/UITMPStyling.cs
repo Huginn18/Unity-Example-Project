@@ -12,7 +12,7 @@ namespace HoodedCrow.Core.UI
         protected override void SetStyling()
         {
             TMP_Text tmp = GetComponent<TMP_Text>();
-            tmp.font = _tmpStyling.Value;
+            tmp.font = _tmpStyling == null ? null : _tmpStyling.Value;
             tmp.color = _colorStyling == null ? Color.magenta : _colorStyling.Value;
         }
     }

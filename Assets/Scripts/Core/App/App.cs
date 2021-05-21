@@ -10,14 +10,18 @@ namespace HoodedCrow.Core
 
         private void Update()
         {
+            if (_gameManager == null)
+            {
+                return;
+            }
             _gameManager.Tick();
         }
 
         public void SetGameManager(GameManager gameManager)
         {
-            if (gameManager != null)
+            if (_gameManager != null)
             {
-                Debug.LogError("You are trying to set GameManager when the other one is active. \nPlease check what went wrong");
+                Debug.LogError("You are trying to set GameManager when the other one is active. \nPlease check what went wrong", gameManager);
                 return;
             }
 
@@ -32,6 +36,7 @@ namespace HoodedCrow.Core
 
         public static void Quit()
         {
+            Debug.Log("QUIT");
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
             #else

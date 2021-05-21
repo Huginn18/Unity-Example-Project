@@ -14,7 +14,7 @@ namespace HoodedCrow.Core.UI
         {
             Image image = GetComponent<Image>();
 
-            image.sprite = _imageStyling.Value;
+            image.sprite = _imageStyling == null ? null : _imageStyling.Value;
             image.color = _colorStyling == null ? Color.magenta : _colorStyling.Value;
         }
     }
