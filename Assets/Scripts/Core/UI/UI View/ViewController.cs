@@ -9,7 +9,7 @@ namespace HoodedCrow.Core.UI
     public class ViewController: MonoBehaviour, IViewController<AView>
     {
         public AView CurrentView => _currentView.GetValue();
-        private Value<AView> _currentView;
+        private Value<AView> _currentView = new Value<AView>();
 
         [SerializeField] private AView _defaultView;
         [SerializeField] private List<AView> _views = new List<AView>();
@@ -32,6 +32,7 @@ namespace HoodedCrow.Core.UI
             foreach (AView view in _views)
             {
                 _viewsCollection[view.GetType()] = view;
+                view.Initialize(this);
             }
         }
 
@@ -158,9 +159,12 @@ namespace HoodedCrow.Core.UI
         private void HandleCurrentViewChange(AView view)
         {
             AView previousView = CurrentView;
-            previousView.Hide();
-            _currentView.SetValue(null);
-            _viewHiddenMessage.Send(new ViewHiddenMessageContent(previousView));
+            if(previousView != null)
+            {
+                previousView.Hide();
+                _currentView.SetValue(null);
+                _viewHiddenMessage.Send(new ViewHiddenMessageContent(previousView));
+            }
 
             view.Show();
             _currentView.UpdateValue(view);

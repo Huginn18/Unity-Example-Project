@@ -26,7 +26,7 @@ namespace HoodedCrow.Core
         {
             if (OnMessageDispatched == null)
             {
-                Debug.Log($"{GetType().Name} was sent but no one is listening to it.");
+                Debug.LogWarning($"{GetType().Name} was sent but no one is listening to it.");
                 return;
             }
             OnMessageDispatched.Invoke(content);

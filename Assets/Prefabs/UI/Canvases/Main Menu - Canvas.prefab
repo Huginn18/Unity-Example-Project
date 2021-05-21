@@ -452,8 +452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d10c82d15244a73b5d2ee5486507e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultView: {fileID: 0}
-  _views: []
+  _defaultView: {fileID: 4678443459408864173}
+  _views:
+  - {fileID: 4678443459408864173}
   _currentViewSetMessage: {fileID: 11400000, guid: 30e10037d2a65534da31833b9afe8a6d, type: 2}
   _currentViewChangeMessage: {fileID: 11400000, guid: 265c203efe69b57ea92af2032b214776, type: 2}
   _viewHiddenMessage: {fileID: 11400000, guid: bfc0969e4d30a49c483eec863aed6a4a, type: 2}
