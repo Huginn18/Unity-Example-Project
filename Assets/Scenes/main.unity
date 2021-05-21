@@ -520,6 +520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _preloadModule:
   - {fileID: 1035238990}
+  _addModuleMessage: {fileID: 11400000, guid: 082359aae0f1717cdae37d60fae54abd, type: 2}
+  _removeModuleMessage: {fileID: 11400000, guid: 1dcb0aae7a53a3535b031e20760643d5, type: 2}
 --- !u!4 &1853910775
 Transform:
   m_ObjectHideFlags: 0

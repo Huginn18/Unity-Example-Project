@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2038288407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038288409}
+  - component: {fileID: 2038288408}
+  m_Layer: 0
+  m_Name: Quiz Module
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2038288408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038288407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661d04ed54fe456ca6e8dd61017f0bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quizSet: {fileID: 11400000, guid: 45b709aa823516b9f91eee9df51ca3e7, type: 2}
+  _startQuizRoundMessage: {fileID: 11400000, guid: 9abad33d4e41a98a0ab0f4f4cde7c7a3, type: 2}
+  _questionRequestMessage: {fileID: 11400000, guid: cb8b1eafc63c27e7ea520988a15f41c2, type: 2}
+  _playerAnsweredMessage: {fileID: 11400000, guid: f2b62313d03335d26982e1c52dd6b7f6, type: 2}
+  _addModuleMessage: {fileID: 11400000, guid: 082359aae0f1717cdae37d60fae54abd, type: 2}
+  _removeModuleMessage: {fileID: 11400000, guid: 1dcb0aae7a53a3535b031e20760643d5, type: 2}
+  _newQuestionMessage: {fileID: 11400000, guid: dec8233e8f1ad9f3ba066d4681d06313, type: 2}
+  _requestQuizViewMessage: {fileID: 11400000, guid: 229deff5808f79ff8bb1545ca2009709, type: 2}
+--- !u!4 &2038288409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038288407}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6783886097296542457
 PrefabInstance:
   m_ObjectHideFlags: 0

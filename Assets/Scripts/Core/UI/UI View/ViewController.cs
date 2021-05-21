@@ -25,7 +25,7 @@ namespace HoodedCrow.Core.UI
         [SerializeField] private AdditiveViewHiddenMessage _additiveViewHiddenMessage;
         [SerializeField] private AdditiveViewsHiddenMessage _additiveViewsHiddenMessage;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _currentView.OnValueChange += TView => _currentViewSetMessage.Send(new CurrentViewSetMessageContent(TView));
 

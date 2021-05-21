@@ -9,6 +9,15 @@ namespace HoodedCrow.Core
         [SerializeField] private List<AModuleManager> _preloadModule = new List<AModuleManager>();
         private Dictionary<Type, AModuleManager> _activeModules = new Dictionary<Type, AModuleManager>();
 
+        [SerializeField] private AddModuleMessage _addModuleMessage;
+        [SerializeField] private RemoveModuleMessage _removeModuleMessage;
+
+        private void Awake()
+        {
+            _addModuleMessage.AddListener(HandleAddModuleMessage);
+            _removeModuleMessage.AddListener(HandleRemoveModuleMessage);
+        }
+
         private void Start()
         {
             App.Instance.SetGameManager(this);
@@ -77,6 +86,16 @@ namespace HoodedCrow.Core
             {
                 AddModuleManager(manager);
             }
+        }
+
+        private void HandleAddModuleMessage(AddModuleMessageContent content)
+        {
+            AddModuleManager(content.ModuleManager);
+        }
+
+        private void HandleRemoveModuleMessage(RemoveModuleMessageContent content)
+        {
+            RemoveModule(content.ModuleManager);
         }
     }
 }
