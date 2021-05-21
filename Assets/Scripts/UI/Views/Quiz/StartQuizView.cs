@@ -1,7 +1,9 @@
 namespace HoodedCrow.UI
 {
+    using System;
     using HoodedCrow.Core;
     using HoodedCrow.Core.UI;
+    using HoodedCrow.Quiz;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
     using UnityEngine.UI;
@@ -16,6 +18,7 @@ namespace HoodedCrow.UI
 
         [Header("Messages - Sends")]
         [SerializeField] private LoadSceneMessage _loadSceneMessage;
+        [SerializeField] private StartQuizRoundMessage _startQuizRoundMessage;
 
         public override void Initialize(IViewController<AView> viewController)
         {
@@ -27,6 +30,7 @@ namespace HoodedCrow.UI
 
         protected override void OnShowView()
         {
+            _startQuizRoundMessage.Send(new StartQuizMessageContent());
         }
 
         protected override void OnHideView()
@@ -35,7 +39,6 @@ namespace HoodedCrow.UI
 
         private void OnYesButton()
         {
-            Debug.Log("Yes");
             _viewController.ShowView<QuizQuestionView>(false);
         }
 
