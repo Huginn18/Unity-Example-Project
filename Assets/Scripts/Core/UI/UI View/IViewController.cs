@@ -1,4 +1,4 @@
-namespace HoodedCrow.Core
+namespace HoodedCrow.Core.UI
 {
     using System;
 
@@ -7,12 +7,12 @@ namespace HoodedCrow.Core
         public TView CurrentView { get; }
 
         public void ShowView(Type viewType, bool additive);
-        public void ShowView<TView>(bool additive);
+        public void ShowView<T>(bool additive) where T: TView;
 
 
         public void HideCurrentView();
         public void HideView(Type viewType);
-        public void HideView<TView>();
+        public void HideView<T>() where T : TView;
 
         public void HideAllAdditiveViews();
     }

@@ -1,7 +1,9 @@
-namespace HoodedCrow.Core
+namespace HoodedCrow.Core.UI
 {
     using System;
     using System.Collections.Generic;
+    using HoodedCrow.Core.UI.Messages;
+    using HoodedCrow.Core.UI.Messages.Showing_Additive_View;
     using UnityEngine;
 
     public class ViewController: MonoBehaviour, IViewController<AView>
@@ -12,9 +14,17 @@ namespace HoodedCrow.Core
         private Dictionary<Type, AView> _viewsCollection = new Dictionary<Type, AView>();
         private Dictionary<Type, AView> _additiveViewsCollection = new Dictionary<Type, AView>();
 
-        public void ShowView<TView>(bool additive)
+        [Header("Messages")]
+        [SerializeField] private CurrentViewChangeMessage _currentViewChangeMessage;
+        [SerializeField] private ViewHiddenMessage _viewHiddenMessage;
+
+        [SerializeField] private ShowingAdditiveViewMessage _showingAdditiveViewMessage;
+        [SerializeField] private AdditiveViewHiddenMessage _additiveViewHiddenMessage;
+        [SerializeField] private AdditiveViewsHiddenMessage _additiveViewsHiddenMessage;
+
+        public void ShowView<T>(bool additive) where T: AView
         {
-            Type viewType = typeof(TView);
+            Type viewType = typeof(T);
             ShowView(viewType, additive);
         }
 
@@ -40,11 +50,11 @@ namespace HoodedCrow.Core
             }
 
             CurrentView.Hide();
-            //ToDo: Send message about view being disabled
+            _viewHiddenMessage.Send(new ViewHiddenMessageContent(CurrentView));
             _currentView.UpdateValue(null);
         }
 
-        public void HideView<TView>()
+        public void HideView<T>() where T : AView
         {
             throw new NotImplementedException();
         }
@@ -74,7 +84,7 @@ namespace HoodedCrow.Core
                 HideAdditiveView(view.GetType());
             }
 
-            //ToDo: Send message about all additive views being disabled
+            _additiveViewsHiddenMessage.Send(new AdditiveViewsHiddenMessageContent());
         }
 
 
@@ -103,7 +113,7 @@ namespace HoodedCrow.Core
 
             view.Show();
             _additiveViewsCollection[viewType] = view;
-            //ToDo: Send Message about additive view
+            _showingAdditiveViewMessage.Send(new ShowingAdditiveViewMessageContent(view));
         }
 
         private void HandleShowingView(AView view)
@@ -120,7 +130,8 @@ namespace HoodedCrow.Core
             {
                 view.Show();
                 _currentView.UpdateValue(view);
-                //ToDo: Send message about current view change
+                _currentViewChangeMessage.Send(new CurrentViewChangeMessageContent(null, CurrentView));
+                return;
             }
 
             HandleCurrentViewChange(view);
@@ -131,10 +142,11 @@ namespace HoodedCrow.Core
             AView previousView = CurrentView;
             previousView.Hide();
             _currentView.SetValue(null);
-            //ToDo: Send message about view being hidden
+            _viewHiddenMessage.Send(new ViewHiddenMessageContent(previousView));
 
             view.Show();
             _currentView.UpdateValue(view);
+            _currentViewChangeMessage.Send(new CurrentViewChangeMessageContent(previousView, CurrentView));
         }
 
         private void HideAdditiveView(Type viewType)
@@ -142,7 +154,7 @@ namespace HoodedCrow.Core
             AView view = _additiveViewsCollection[viewType];
             view.Hide();
             _additiveViewsCollection.Remove(viewType);
-            //ToDo: Send message about additive view being disabled
+            _additiveViewHiddenMessage.Send(new AdditiveViewHiddenMessageContent(view));
         }
     }
 }

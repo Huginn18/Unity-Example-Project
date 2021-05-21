@@ -1,4 +1,4 @@
-namespace HoodedCrow.Core
+namespace HoodedCrow.Core.UI
 {
     using UnityEngine;
 
