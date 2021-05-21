@@ -15,12 +15,18 @@ namespace HoodedCrow.Core.UI
         private Dictionary<Type, AView> _additiveViewsCollection = new Dictionary<Type, AView>();
 
         [Header("Messages")]
+        [SerializeField] private CurrentViewSetMessage _currentViewSetMessage;
         [SerializeField] private CurrentViewChangeMessage _currentViewChangeMessage;
         [SerializeField] private ViewHiddenMessage _viewHiddenMessage;
 
         [SerializeField] private ShowingAdditiveViewMessage _showingAdditiveViewMessage;
         [SerializeField] private AdditiveViewHiddenMessage _additiveViewHiddenMessage;
         [SerializeField] private AdditiveViewsHiddenMessage _additiveViewsHiddenMessage;
+
+        private void Awake()
+        {
+            _currentView.OnValueChange += TView => _currentViewSetMessage.Send(new CurrentViewSetMessageContent(TView));
+        }
 
         public void ShowView<T>(bool additive) where T: AView
         {
