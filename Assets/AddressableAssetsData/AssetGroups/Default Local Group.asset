@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: cc861ab60e39527a3a2ae1819e6a86b1
+    m_Address: Assets/Scenes/additive/game.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3a5dc7a9d2d4d4253a30b154f5974bc4, type: 2}
   m_SchemaSet:
