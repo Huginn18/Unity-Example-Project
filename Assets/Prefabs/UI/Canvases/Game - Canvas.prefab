@@ -3317,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9090019872381432049, guid: 2aa871df6d0151c3f8b65222088bcbd3, type: 3}
       propertyPath: m_text
-      value: rexit
+      value: exit
       objectReference: {fileID: 0}
     - target: {fileID: 9090019872381432049, guid: 2aa871df6d0151c3f8b65222088bcbd3, type: 3}
       propertyPath: m_fontColor.b
