@@ -75,7 +75,7 @@ namespace HoodedCrow.Core.UI
 
         public void HideView<T>() where T : AView
         {
-            throw new NotImplementedException();
+            HideView(typeof(T));
         }
 
         public void HideView(Type viewType)
